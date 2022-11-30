@@ -5,38 +5,87 @@ inline : 박스 형태가 아닌 text 형태를 가짐, 옆으로 요소들을 �
 inline-block : 박스 형태의 요소를 text 형태처럼 옆으로 나란히 나열할 수 있음 
  */
 
-.box {
-  width: 200px;
-  height: 200px;
+.child {
+  /* 
+  flex-shrink, flex-grow 등으로 화면에 비율에 따가 요소들의 크기를 달리 하면 굳이 크기속성을 사용하지 않아도됨
+  
+  width: 300px;
+  height: 200px; 
+  */
+  flex-basis: 300px;
+
   background: peru;
   color: white;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .father {
-  display: flex;
   background: indigo;
+  display: flex;
+  flex-direction: column;
+  
+  /* 세로축, 가로축 움직임을 둘다 사용할 경우 현재 적용된 flex-direction에 따라 main axis와 cross axis가 달라짐*/
   justify-content: space-around;
-  align-items: flex-start;
-  height: 50vh;
+  /* height: 100vh; */
+
+  /*box의 크기를 변경하지 않고 flex 유지하기*/
+  flex-wrap: nowrap;  
 }
 
 /*
 flex : inline-block과 같은 기능을 가짐, default=row(가로)
 
-justify-content : 자식 요소의 수평축(가로)에서 자식요소를 움직임 / flex-row 일때 사용
+justify-content : 부모요소의 cross axis(주 축의 반대 축)으로 자식요소를 움직임 / flex-row 일때, 혹은 flex-col에서 요소를 가로로 움직이고 싶을때 사용
   - space-between : 요소와 요소 사이를 같은 크기로 띄움
   - space-around : 각 요소의 양옆 공간을 같은 크기로 띄움
   - flex의 direction이 row,col에 따라 수평축이 달라짐
   - row일 때 주 축(main axis)은 수평/가로 축(horizontal axis)
 
-align-items : 자식 요소의 수직축(세로)에서 자식요소를 움직임 / flex-col 일때 사용
+align-items : 부모요소의 cross axis(주 축의 반대 축)으로 자식요소를 움직임 / flex-col 일때, 혹은 flex-row에서 요소를 세로로 움직이고 싶을때 사용
   - align-itmes 사용 시 주의사항 : 
       자식요소를 감싸고 있는 부모요소의 높이가 따로 정하지 않는 이상 
       자식요소와 같기 때문에 세로축에서의 움직임을 원한다면 부모요소의 높이를 따로 지정해야함
   - center : 부모요소 안에서 수직축 기준 중앙정렬
   - stretch : 자식요소의 높이 미지정 상태에서 실행 시 부모요소 안에서 수직축 기준 자식요소의 높이를 최대길이로 설정
   - flex-end: 부모요소 안에서 자식요소를 수직축 기준 끝으로 설정
+  - flex-start: 부모요소 안에서 자식요소를 수직축 기준 처음으로 설정, default 값
   - flex의 direction이 row,col에 따라 수평축이 달라짐
   - col일 때 주 축(cross axis)은 수직/세로 축(vertical axis) 
- 
+
+align-self : 세로축 자식요소들 중 선택한 하나의 자식요소만 움직임을 줄 수 있음
+
+order : index를 바꿔 순서를 자식요소의 순서를 설정, 모든 자식요소들은 index[0]이 기본값이고 작은 수 부터 나열 됨
+
+flex-wrap : nowrap이 기본값이며 아래 설명과 같은 기능을 가짐-> flex는 기본적으로 nowrap속성을 가짐
+  flex를 적용한 box는 width를 신경쓰지 않고 flex를 지키려 함(row면 가로로, col이면 세로로) 
+    -> box의 width가 줄어들면서까지 flex를 유지함
+    => 따라서 box의 크기를 유지하면서 flex를 지키고 싶다면 flex-wrap을 wrap으로 지정해줘야함
+
+row-reverse : 가로축 에서 자식요소들의 처음과 끝을 반대로 뒤집음 
+col-reverse : 세로축 에서 자식요소들의 처음과 끝을 반대로 뒤집음
+
+flex-shrink : flex box가 flex-nowrap 일때 화면을 줄이면 box의 크기가 찌그러지면서 flex가 유지되는데,
+   이때 하나의 자식에게만 flex-shrink를 사용하면 선택한 자식 요소가 다른 자식요소들 보다 설정한 크기 만큼(기본이 1, 2는 2배를 의미) 더 찌그러짐
+
+flex-grow : flex-shrink와 반대로 화면이 커질 때
+ 자식 요소들 중 더 커지게 하고 싶은 하나의 자식요소를 선택하여 설정할 수 있음
+  0이 기본 값
+
+flex-basis : 화면이 커지거나 작아지기 전 자식 요소들에게 기본 크기를 설정하는 속성  
+  flex-row 이면 width로 기본 크기가 설정되고,
+  flex-col 이면 heigth로 기본 크기가 설정됨
 */
+
+/* .child:nth-child(1){
+  order: 2;
+}  */
+
+.child:nth-child(2){
+  background-color: blue;
+  /* flex-shrink: 2; */
+  flex-grow: 1;
+} 
+
