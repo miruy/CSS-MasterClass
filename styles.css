@@ -1,0 +1,42 @@
+/* 
+display : 화면에 보여지는 모습
+block : 하나의 블록,박스의 모습으로 자신외에 옆에 아무것도 올수 없음
+inline : 박스 형태가 아닌 text 형태를 가짐, 옆으로 요소들을 나열할 수 있음
+inline-block : 박스 형태의 요소를 text 형태처럼 옆으로 나란히 나열할 수 있음 
+ */
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: peru;
+  color: white;
+}
+
+.father {
+  display: flex;
+  background: indigo;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 50vh;
+}
+
+/*
+flex : inline-block과 같은 기능을 가짐, default=row(가로)
+
+justify-content : 자식 요소의 수평축(가로)에서 자식요소를 움직임 / flex-row 일때 사용
+  - space-between : 요소와 요소 사이를 같은 크기로 띄움
+  - space-around : 각 요소의 양옆 공간을 같은 크기로 띄움
+  - flex의 direction이 row,col에 따라 수평축이 달라짐
+  - row일 때 주 축(main axis)은 수평/가로 축(horizontal axis)
+
+align-items : 자식 요소의 수직축(세로)에서 자식요소를 움직임 / flex-col 일때 사용
+  - align-itmes 사용 시 주의사항 : 
+      자식요소를 감싸고 있는 부모요소의 높이가 따로 정하지 않는 이상 
+      자식요소와 같기 때문에 세로축에서의 움직임을 원한다면 부모요소의 높이를 따로 지정해야함
+  - center : 부모요소 안에서 수직축 기준 중앙정렬
+  - stretch : 자식요소의 높이 미지정 상태에서 실행 시 부모요소 안에서 수직축 기준 자식요소의 높이를 최대길이로 설정
+  - flex-end: 부모요소 안에서 자식요소를 수직축 기준 끝으로 설정
+  - flex의 direction이 row,col에 따라 수평축이 달라짐
+  - col일 때 주 축(cross axis)은 수직/세로 축(vertical axis) 
+ 
+*/
