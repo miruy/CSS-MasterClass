@@ -1,0 +1,55 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 10px;
+}
+
+.header{
+ background-color: aqua;
+ grid-column: span 4;
+}
+
+.content{
+  background-color:chartreuse;
+  grid-column: 1 / -2;
+  grid-row: 2 / span 2;
+}
+
+.nav{
+  background-color:violet;
+  grid-row: 2 / span 2;
+}
+
+.footer{
+  background-color: tomato;
+  grid-column: span 4;
+  /* 
+  grid-column: 1 / -1; 
+  */
+
+  /* 
+  grid-column-start: 1;
+  grid-column-end: 5; 
+  */
+
+  /* 
+  grid-column: 1 / 5;  start와 end를 한번에 작성 가능
+  */
+
+  /* 
+  grid-column: 1 / -1;
+  - 직접 line수를 세지 않고 얼마나 큰 지를 정의 
+  - 처음과 끝을 지정하고 싶을 때 -를 사용
+  - 끝에서부터 -1, -2, -3, -4...) 
+  */
+
+  /* 
+  grid-column: span 4;
+  grid-row: span 2;
+  - 1 / -1 과 같이 처음과 끝을 지정하는 것 대체로 사용가능 
+  - span == cell, 셀, 공간의 개수(공간의 개수를 알면 세로줄, 가로줄이 몇개인지 알수 있기 때문)
+  */
+  
+  
+}

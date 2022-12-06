@@ -1,0 +1,16 @@
+.father {
+  display: grid;
+  grid-template-columns: auto 200px; /* grid의 각 칸 width 길이를 설정함으로써 자동으로 grid 수가 조정됨 */
+  grid-template-rows: 100px repeat(2, 100px);
+}
+
+.child {
+  flex-basis: 30%;
+  background: peru;
+  color: white;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
