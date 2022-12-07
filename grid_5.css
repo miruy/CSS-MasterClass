@@ -1,0 +1,39 @@
+.grid{
+  display: grid;
+  /*
+  fr : fraction, grid에서 화면에서 사용 가능한 공간을 차지
+  - column에서 사용하면 높이 비율, row에서 사용하면 넓이 비율로 적용됨
+  - 지정한 width, height에 따라 화면 크기 내에서 같은 비율의 공간을 제공
+  - width 와 height를 꼭 지정해주어야 fr이 정상적으로 적용됨(크기에 따른 비율)
+
+  fr을 이용한 grid-template : 
+  - row의 내용, row의 높이(height)
+  - 마지막 / 후 column의 넓이(width)
+  */
+  gap: 10px;
+  height: 50vh;
+  grid-template: 
+  "header header header header" 1fr
+  "content content content nav" 2fr
+  "footer footer footer footer" 1fr / 1fr 1fr 1fr 1fr;
+}
+
+.header{
+ background-color: aqua;
+ grid-area: header;
+}
+
+.content{
+  background-color:chartreuse;
+  grid-area: content;
+}
+
+.nav{
+  background-color:violet;
+  grid-area: nav;
+}
+
+.footer{
+  background-color: tomato; 
+  grid-area: footer;
+}

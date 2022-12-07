@@ -1,0 +1,28 @@
+.grid{
+  display: grid;
+  /*
+  fr : fraction, grid에서 화면에서 사용 가능한 공간을 차지
+  - 지정한 width, height에 따라 화면 크기 내에서 같은 비율의 공간을 제공
+  - width 와 height를 꼭 지정해주어야 fr이 정상적으로 적용됨(크기에 따른 비율)
+  */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  height: 50vh;
+}
+
+.header{
+ background-color: aqua;
+}
+
+.content{
+  background-color:chartreuse;
+}
+
+.nav{
+  background-color:violet;
+}
+
+.footer{
+  background-color: tomato; 
+}
